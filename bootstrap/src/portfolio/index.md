@@ -32,11 +32,10 @@ risus posuere elementum. Vestibulum viverra erat sit amet condimentum porta. Ves
 varius ipsum vehicula in. Suspendisse pellentesque, arcu vel consectetur euismod, ipsum risus dictum ligula, ac laoreet
 ante neque in urna. Fusce ac dolor placerat, blandit dolor sed, hendrerit erat.
 
-| Lorem | Ipsum | Dolor | Sit | Amet |
-|---|---|---|---|---|
-| 0 | 1 | 2 | 3 | 4 |
-| 5 | 6 | 7 | 8 | 9 |
-
+| Keyword | Text |
+|---|---|
+red | Sunsets, apples, and other red or reddish things.
+green | Leaves, grass, frogs and other things it's not easy being.
 
 Praesent fermentum a lacus nec molestie. Cras et pulvinar urna, quis pharetra enim. Vestibulum egestas tellus a libero
 blandit, at scelerisque quam placerat. Proin iaculis volutpat viverra. Phasellus velit massa, feugiat vel condimentum
