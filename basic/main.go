@@ -15,7 +15,7 @@ type builder struct{}
 func (b *builder) Build(srcDir, dstDir string) {
 	errs := goldsmith.Begin(srcDir).
 		Chain(frontmatter.New()).
-		Chain(markdown.NewCommon()).
+		Chain(markdown.New()).
 		Chain(layout.New("layouts/*.html")).
 		End(dstDir)
 

@@ -118,5 +118,5 @@ func (b *builder) Build(srcDir, dstDir string) {
 }
 
 func main() {
-	devserver.DevServe(new(builder), 8080, "src", "build", "layouts")
+	devserver.DevServe(new(builder), 8080, "src", "dst", "layouts")
 }
