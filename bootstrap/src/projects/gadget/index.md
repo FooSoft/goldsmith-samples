@@ -3,8 +3,8 @@ Area = "projects"
 CrumbParent = "projects"
 GitHub = "bar"
 Layout = "page"
-Tags = ["bar", "python", "mit license"]
-Title = "Bar"
+Tags = ["gadget", "python", "mit license"]
+Title = "Gadget"
 +++
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in facilisis libero. Cras tincidunt augue non commodo
@@ -46,15 +46,15 @@ amet lectus. Quisque ultricies euismod libero, ac hendrerit enim interdum vitae.
 nulla posuere, euismod velit. Vivamus urna tortor, congue non mi in, vehicula commodo leo. Duis volutpat fringilla
 finibus. Duis ullamcorper lectus id turpis porta, vitae suscipit orci dictum.
 
-Sed rhoncus suscipit blandit. Duis augue nulla, porttitor eu lorem maximus, dictum tempor felis. Nulla gravida cursus
-arcu. Nullam lobortis lacus sem, non facilisis massa malesuada nec. Nunc efficitur ligula eu pulvinar pulvinar. Aenean
-massa ligula, mattis et semper id, efficitur vel nisi. Sed pretium, quam at mollis sagittis, lorem mi auctor felis, eget
-feugiat ipsum nunc a dolor. Proin eu arcu sit amet quam ultrices vehicula. Proin aliquam sem odio.
-
 [![Screenshot 1](img/screenshot1-thumb.png)](img/screenshot1.png)
 [![Screenshot 2](img/screenshot2-thumb.png)](img/screenshot2.png)
 
 ## Instructions ##
+
+Sed rhoncus suscipit blandit. Duis augue nulla, porttitor eu lorem maximus, dictum tempor felis. Nulla gravida cursus
+arcu. Nullam lobortis lacus sem, non facilisis massa malesuada nec. Nunc efficitur ligula eu pulvinar pulvinar. Aenean
+massa ligula, mattis et semper id, efficitur vel nisi. Sed pretium, quam at mollis sagittis, lorem mi auctor felis, eget
+feugiat ipsum nunc a dolor. Proin eu arcu sit amet quam ultrices vehicula. Proin aliquam sem odio.
 
 1.  Suspendisse in sem bibendum urna rutrum ornare.
 2.  Nam at dui non nibh elementum facilisis.

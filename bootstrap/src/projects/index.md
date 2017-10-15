@@ -16,16 +16,18 @@ viverra. Fusce convallis velit mollis viverra cursus. Curabitur bibendum magna t
 volutpat turpis ut metus sagittis lobortis. Praesent et urna sed est blandit posuere non ut enim. Vestibulum venenatis
 mauris quis aliquet congue. Donec faucibus fermentum tortor non congue.
 
-## [Foo](foo/) ##
+*   **[Widget](widget/)**
 
-Maecenas mollis urna at velit dapibus rhoncus. Etiam risus mauris, facilisis vitae erat laoreet, ornare sagittis
-diam. Sed sem tellus, egestas eu eleifend et, suscipit sit amet quam. Maecenas eu massa nec urna aliquam maximus
-finibus sit amet lectus. Quisque ultricies euismod libero, ac hendrerit enim interdum vitae. Sed quis mauris
-pharetra, hendrerit nulla posuere, euismod velit. Vivamus urna tortor, congue non mi in, vehicula commodo leo. Duis
-volutpat fringilla finibus. Duis ullamcorper lectus id turpis porta, vitae suscipit orci dictum.
+    Maecenas mollis urna at velit dapibus rhoncus. Etiam risus mauris, facilisis vitae erat laoreet, ornare sagittis
+    diam. Sed sem tellus, egestas eu eleifend et, suscipit sit amet quam. Maecenas eu massa nec urna aliquam maximus
+    finibus sit amet lectus. Quisque ultricies euismod libero, ac hendrerit enim interdum vitae. Sed quis mauris
+    pharetra, hendrerit nulla posuere, euismod velit. Vivamus urna tortor, congue non mi in, vehicula commodo leo. Duis
+    volutpat fringilla finibus. Duis ullamcorper lectus id turpis porta, vitae suscipit orci dictum.
 
-## [Bar](bar/) ##
-Sed rhoncus suscipit blandit. Duis augue nulla, porttitor eu lorem maximus, dictum tempor felis. Nulla gravida cursus
-arcu. Nullam lobortis lacus sem, non facilisis massa malesuada nec. Nunc efficitur ligula eu pulvinar pulvinar. Aenean
-massa ligula, mattis et semper id, efficitur vel nisi. Sed pretium, quam at mollis sagittis, lorem mi auctor felis, eget
-feugiat ipsum nunc a dolor. Proin eu arcu sit amet quam ultrices vehicula. Proin aliquam sem odio.
+*   **[Gadget](gadget/)**
+
+    Sed rhoncus suscipit blandit. Duis augue nulla, porttitor eu lorem maximus, dictum tempor felis. Nulla gravida
+    cursus arcu. Nullam lobortis lacus sem, non facilisis massa malesuada nec. Nunc efficitur ligula eu pulvinar
+    pulvinar. Aenean massa ligula, mattis et semper id, efficitur vel nisi. Sed pretium, quam at mollis sagittis, lorem
+    mi auctor felis, eget feugiat ipsum nunc a dolor. Proin eu arcu sit amet quam ultrices vehicula. Proin aliquam sem
+    odio.
