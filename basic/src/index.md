@@ -1,6 +1,6 @@
 +++
 Layout = "page"
-Title = "Goldsmith Test Page"
+Title = "Goldsmith Sample"
 +++
 
 ## Depositura amari

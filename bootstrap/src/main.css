@@ -1,0 +1,25 @@
+body {
+    padding-top: 5rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 small, h2 small {
+    white-space: nowrap;
+}
+
+.img-thumbnail-inline {
+    display: inline-block;
+}
+
+:target:before {
+    content: "";
+    display: block;
+    height: 5rem;
+    margin: -5rem 0 0;
+}
+
+.github-corner svg{fill:#636c72; color:#fff; position: absolute; top: 3.4rem; border: 0; right: 0;}
+.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}

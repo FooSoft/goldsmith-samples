@@ -1,0 +1,66 @@
+{{define "page"}}
+{{template "header" .}}
+{{template "navbar" .}}
+{{template "github" .}}
+<div class="container">
+    <h1>
+        {{.Meta.Title}}
+        {{if .Meta.SubTitle}}
+        <small>{{.Meta.SubTitle}}</small>
+        {{end}}
+    </h1>
+    {{template "cloud" .}}
+    <hr>
+    {{.Meta.Content}}
+    {{template "breadcrumbs" .}}
+</div>
+{{template "footer" .}}
+{{end}}
+
+{{define "tag"}}
+{{template "header" .}}
+{{template "navbar" .}}
+<div class="container">
+    <h1>Tagged &ldquo;{{.Meta.Tags.Index}}&rdquo;</h1>
+    <hr>
+    <ul>
+        {{range (index .Meta.Tags.Info .Meta.Tags.Index).Files}}
+        <li><a href="/{{.Path}}">{{.Meta.Title}}</a></li>
+        {{end}}
+    </ul>
+    {{template "breadcrumbs" .}}
+</div>
+{{template "footer" .}}
+{{end}}
+
+{{define "tags"}}
+{{template "header" .}}
+{{template "navbar" .}}
+<div class="container">
+    <h1>Tags</h1>
+    <hr>
+    <ul>
+        {{range $key, $value := .Meta.TagState.Info}}
+        <li><a href="/{{(index $.Meta.TagState.Info $key).Path}}">{{$key}}</a> ({{len $value.Files}})</li>
+        {{end}}
+    </ul>
+    {{template "breadcrumbs" .}}
+</div>
+{{template "footer" .}}
+{{end}}
+
+{{define "index"}}
+{{template "header" .}}
+{{template "navbar" .}}
+<div class="container">
+    <h1>Index of /{{.Dir}}</h1>
+    <ul class="list-unstyled">
+        {{range .Meta.Files}}
+        {{if .IsDir}}<strong>{{end}}
+        <li><a href="/{{.Path}}">{{.Name}}</a></li>
+        {{if .IsDir}}</strong>{{end}}
+        {{end}}
+    </ul>
+</div>
+{{template "footer" .}}
+{{end}}

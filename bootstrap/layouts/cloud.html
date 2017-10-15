@@ -1,0 +1,9 @@
+{{define "cloud"}}
+{{if .Meta.TagState.Tags}}
+<div>
+    {{range .Meta.TagState.Tags}}
+    <a class="badge badge-default" href="/{{(index $.Meta.TagState.Info .).Path}}">{{.}}</a>
+    {{end}}
+</div>
+{{end}}
+{{end}}
