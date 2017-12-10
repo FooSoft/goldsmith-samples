@@ -1,0 +1,14 @@
+{{define "collection"}}
+{{template "header" .}}
+{{template "navbar" .}}
+<div class="container">
+    {{range .Meta.Groups.Blog}}
+        <div>
+            <h1><a href="{{.Path}}">{{.Meta.Title}}</a></h1>
+            <p>{{.Meta.Content}}</h1>
+        </div>
+    {{end}}
+</div>
+{{template "footer" .}}
+{{end}}
+

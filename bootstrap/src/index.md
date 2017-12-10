@@ -1,7 +1,7 @@
 +++
 Area = "home"
 CrumbName = "home"
-Layout = "page"
+Layout = "collection"
 Title = "Home"
 +++
 

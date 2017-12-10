@@ -28,6 +28,7 @@ import (
 	"github.com/FooSoft/goldsmith"
 	"github.com/FooSoft/goldsmith-devserver"
 	"github.com/FooSoft/goldsmith-plugins/breadcrumbs"
+	"github.com/FooSoft/goldsmith-plugins/collection"
 	"github.com/FooSoft/goldsmith-plugins/frontmatter"
 	"github.com/FooSoft/goldsmith-plugins/index"
 	"github.com/FooSoft/goldsmith-plugins/layout"
@@ -103,6 +104,7 @@ func (b *builder) Build(srcDir, dstDir string) {
 	errs := goldsmith.Begin(srcDir).
 		Chain(frontmatter.New()).
 		Chain(markdown.New().MarkdownFlags(markdownFlags)).
+		Chain(collection.New()).
 		Chain(index.New(indexMeta)).
 		Chain(tags.New().IndexMeta(tagMeta)).
 		Chain(breadcrumbs.New()).
