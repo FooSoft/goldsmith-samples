@@ -2,6 +2,7 @@
 Layout = "page"
 Title = "Blog Post 1"
 Collection = "Blog"
+CrumbParent = "home"
 +++
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis placerat elit. Pellentesque metus turpis, egestas
@@ -25,4 +26,3 @@ Pellentesque nulla velit, lacinia sit amet lacinia euismod, blandit in est. Aene
 Etiam ac diam at arcu feugiat luctus. Nam eu finibus velit. Vivamus felis erat, scelerisque vitae ultricies quis,
 viverra a eros. Curabitur faucibus bibendum arcu, sit amet laoreet risus convallis eu. Vivamus fermentum egestas
 ultricies. Vivamus semper tristique mi sed varius.
-
