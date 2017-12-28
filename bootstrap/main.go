@@ -106,7 +106,7 @@ func (b *builder) Build(srcDir, dstDir string) {
 		Chain(frontmatter.New()).
 		Chain(markdown.New().MarkdownFlags(markdownFlags)).
 		Chain(collection.New()).
-		Chain(paginate.New("Groups.Blog").Limit(5)).
+		Chain(paginate.New("Groups.Blog").Limit(3)).
 		Chain(index.New(indexMeta)).
 		Chain(tags.New().IndexMeta(tagMeta)).
 		Chain(breadcrumbs.New()).
