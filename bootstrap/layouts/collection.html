@@ -12,6 +12,7 @@
     </div>
     {{end}}
 
+    {{if .Meta.Pager.Paged}}
     <ul class="pagination justify-content-center">
         {{if .Meta.Pager.PageCurr.Prev}}
         <li class="page-item">
@@ -45,6 +46,7 @@
         </li>
         {{end}}
     </ul>
+    {{end}}
 </div>
 {{template "footer" .}}
 {{end}}
