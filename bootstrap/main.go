@@ -33,6 +33,7 @@ import (
 	"github.com/FooSoft/goldsmith-plugins/index"
 	"github.com/FooSoft/goldsmith-plugins/layout"
 	"github.com/FooSoft/goldsmith-plugins/markdown"
+	"github.com/FooSoft/goldsmith-plugins/paginate"
 	"github.com/FooSoft/goldsmith-plugins/syntax"
 	"github.com/FooSoft/goldsmith-plugins/tags"
 	"github.com/FooSoft/goldsmith-plugins/thumbnail"
@@ -105,6 +106,7 @@ func (b *builder) Build(srcDir, dstDir string) {
 		Chain(frontmatter.New()).
 		Chain(markdown.New().MarkdownFlags(markdownFlags)).
 		Chain(collection.New()).
+		Chain(paginate.New("Groups.Blog").Limit(5)).
 		Chain(index.New(indexMeta)).
 		Chain(tags.New().IndexMeta(tagMeta)).
 		Chain(breadcrumbs.New()).

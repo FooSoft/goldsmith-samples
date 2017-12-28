@@ -2,10 +2,13 @@
 {{template "header" .}}
 {{template "navbar" .}}
 <div class="container">
-    {{range .Meta.Groups.Blog}}
+    {{range .Meta.Pager.Items}}
         <div>
             <h1><a href="{{.Path}}">{{.Meta.Title}}</a></h1>
-            <p>{{.Meta.Content}}</h1>
+            <p>
+                {{.Meta.Summary.Intro}}
+                <a href="{{.Path}}">[&hellip;more]</a>
+            </p>
         </div>
     {{end}}
 </div>
