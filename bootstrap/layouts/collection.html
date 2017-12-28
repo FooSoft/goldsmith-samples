@@ -3,14 +3,28 @@
 {{template "navbar" .}}
 <div class="container">
     {{range .Meta.Pager.Items}}
-        <div>
-            <h1><a href="{{.Path}}">{{.Meta.Title}}</a></h1>
-            <p>
-                {{.Meta.Summary.Intro}}
-                <a href="{{.Path}}">[&hellip;more]</a>
-            </p>
-        </div>
+    <div>
+        <h1><a href="{{.Path}}">{{.Meta.Title}}</a></h1>
+        <p>
+            {{.Meta.Summary.Intro}}
+            <a href="{{.Path}}">[&hellip;more]</a>
+        </p>
+    </div>
     {{end}}
+
+    <ul class="pagination">
+        <li class="page-item {{if not .Meta.Pager.PageUrlPrevOk}}disabled{{end}}">
+            <a class="page-link" href="{{.Meta.Pager.PageUrlPrev}}" tabindex="-1">Previous</a>
+        </li>
+        {{range $index, $url := .Meta.Pager.PageUrls}}
+        <li class="page-item {{if eq $index $.Meta.Pager.PageUrlIndex}}disabled{{end}}">
+            <a class="page-link" href="{{$url}}">{{$index}}</a>
+        </li>
+        {{end}}
+        <li class="page-item {{if not .Meta.Pager.PageUrlNextOk}}disabled{{end}}">
+            <a class="page-link" href="{{.Meta.Pager.PageUrlNext}}">Next</a>
+        </li>
+    </ul>
 </div>
 {{template "footer" .}}
 {{end}}
