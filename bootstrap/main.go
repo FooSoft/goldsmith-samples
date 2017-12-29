@@ -29,6 +29,7 @@ import (
 	"github.com/FooSoft/goldsmith-devserver"
 	"github.com/FooSoft/goldsmith-plugins/breadcrumbs"
 	"github.com/FooSoft/goldsmith-plugins/collection"
+	"github.com/FooSoft/goldsmith-plugins/dom"
 	"github.com/FooSoft/goldsmith-plugins/frontmatter"
 	"github.com/FooSoft/goldsmith-plugins/index"
 	"github.com/FooSoft/goldsmith-plugins/layout"
@@ -41,22 +42,7 @@ import (
 	"github.com/russross/blackfriday"
 )
 
-type fixup struct{}
-
-func (*fixup) Name() string {
-	return "fixup"
-}
-
-func (*fixup) Initialize(ctx goldsmith.Context) ([]string, error) {
-	return []string{"**/*.html", "**/*.htm"}, nil
-}
-
-func (*fixup) Process(ctx goldsmith.Context, f goldsmith.File) error {
-	doc, err := goquery.NewDocumentFromReader(f)
-	if err != nil {
-		return err
-	}
-
+func fixup(doc *goquery.Document) error {
 	doc.Find("table").AddClass("table")
 	doc.Find("blockquote").AddClass("blockquote")
 	doc.Find("img[src*='thumb']").Each(func(i int, s *goquery.Selection) {
@@ -67,14 +53,6 @@ func (*fixup) Process(ctx goldsmith.Context, f goldsmith.File) error {
 		thumbLink.SetAttr("data-gallery", "gallery")
 	})
 
-	html, err := doc.Html()
-	if err != nil {
-		return err
-	}
-
-	nf := goldsmith.NewFileFromData(f.Path(), []byte(html))
-	nf.CopyValues(f)
-	ctx.DispatchFile(nf)
 	return nil
 }
 
@@ -112,7 +90,7 @@ func (b *builder) Build(srcDir, dstDir string) {
 		Chain(breadcrumbs.New()).
 		Chain(layout.New("layouts/*.html")).
 		Chain(syntax.New().Placement(syntax.PlaceInline)).
-		Chain(new(fixup)).
+		Chain(dom.New(fixup)).
 		Chain(thumbnail.New()).
 		End(dstDir)
 
