@@ -39,7 +39,6 @@ import (
 	"github.com/FooSoft/goldsmith-plugins/tags"
 	"github.com/FooSoft/goldsmith-plugins/thumbnail"
 	"github.com/PuerkitoBio/goquery"
-	"github.com/russross/blackfriday"
 )
 
 func fixup(doc *goquery.Document) error {
@@ -69,20 +68,9 @@ func (b *builder) Build(srcDir, dstDir string) {
 		"Layout": "index",
 	}
 
-	markdownFlags := blackfriday.EXTENSION_TABLES |
-		blackfriday.EXTENSION_FENCED_CODE |
-		blackfriday.EXTENSION_AUTOLINK |
-		blackfriday.EXTENSION_STRIKETHROUGH |
-		blackfriday.EXTENSION_SPACE_HEADERS |
-		blackfriday.EXTENSION_HEADER_IDS |
-		blackfriday.EXTENSION_BACKSLASH_LINE_BREAK |
-		blackfriday.EXTENSION_DEFINITION_LISTS |
-		blackfriday.EXTENSION_NO_EMPTY_LINE_BEFORE_BLOCK |
-		blackfriday.EXTENSION_AUTO_HEADER_IDS
-
 	errs := goldsmith.Begin(srcDir).
 		Chain(frontmatter.New()).
-		Chain(markdown.New().MarkdownFlags(markdownFlags)).
+		Chain(markdown.New()).
 		Chain(collection.New()).
 		Chain(paginate.New("Groups.Blog").ItemsPerPage(3)).
 		Chain(index.New(indexMeta)).
