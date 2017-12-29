@@ -25,15 +25,15 @@
         {{end}}
 
         {{range .Meta.Pager.PagesAll}}
-            {{if eq $.Meta.Pager.PageCurr.Index .Index}}
-            <li class="page-item disabled">
-                <a class="page-link" href="#">{{.Index}}</a>
-            </li>
-            {{else}}
-            <li class="page-item">
-                <a class="page-link" href="{{.File.Path}}">{{.Index}}</a>
-            </li>
-            {{end}}
+        {{if eq $.Meta.Pager.PageCurr.Index .Index}}
+        <li class="page-item disabled">
+            <a class="page-link" href="#">{{.Index}}</a>
+        </li>
+        {{else}}
+        <li class="page-item">
+            <a class="page-link" href="{{.File.Path}}">{{.Index}}</a>
+        </li>
+        {{end}}
         {{end}}
 
         {{if .Meta.Pager.PageCurr.Next}}
@@ -50,4 +50,3 @@
 </div>
 {{template "footer" .}}
 {{end}}
-

@@ -1,7 +1,7 @@
 +++
-Area = "home"
-CrumbName = "home"
+Area = "blog"
+CrumbName = "blog"
 Layout = "collection"
-Title = "Home"
+Title = "Blog"
 +++
 

@@ -1,7 +1,7 @@
 +++
 Area = "projects"
 CrumbName = "projects"
-CrumbParent = "home"
+CrumbParent = "blog"
 Layout = "page"
 Title = "Projects"
 +++

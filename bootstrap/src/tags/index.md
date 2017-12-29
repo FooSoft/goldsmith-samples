@@ -1,7 +1,7 @@
 +++
 Area = "tags"
 CrumbName = "tags"
-CrumbParent = "home"
+CrumbParent = "blog"
 Layout = "tags"
 Title = "Tags"
 +++

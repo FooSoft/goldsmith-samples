@@ -57,8 +57,8 @@
     <ul class="list-unstyled">
         {{range .Meta.Files}}
         {{if .IsDir}}<strong>{{end}}
-        <li><a href="/{{.Path}}">{{.Name}}</a></li>
-        {{if .IsDir}}</strong>{{end}}
+            <li><a href="/{{.Path}}">{{.Name}}</a></li>
+            {{if .IsDir}}</strong>{{end}}
         {{end}}
     </ul>
 </div>

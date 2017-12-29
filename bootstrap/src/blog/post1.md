@@ -2,7 +2,7 @@
 Layout = "page"
 Title = "Blog Post 1"
 Collection = "Blog"
-CrumbParent = "home"
+CrumbParent = "blog"
 +++
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis placerat elit. Pellentesque metus turpis, egestas
