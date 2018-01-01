@@ -70,9 +70,9 @@ func (b *builder) Build(srcDir, dstDir string) {
 
 	errs := goldsmith.Begin(srcDir).
 		Chain(frontmatter.New()).
-		Chain(markdown.New()).
+		Chain(markdown.New().SummaryKey("Summary")).
 		Chain(collection.New()).
-		Chain(paginate.New("Groups.Blog").ItemsPerPage(3)).
+		Chain(paginate.New("Groups.Blog").InheritKeys("Layout").ItemsPerPage(3)).
 		Chain(index.New(indexMeta)).
 		Chain(tags.New().IndexMeta(tagMeta)).
 		Chain(breadcrumbs.New()).
