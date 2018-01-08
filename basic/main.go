@@ -4,10 +4,10 @@ import (
 	"log"
 
 	"github.com/FooSoft/goldsmith"
-	"github.com/FooSoft/goldsmith-devserver"
-	"github.com/FooSoft/goldsmith-plugins/plugins/frontmatter"
-	"github.com/FooSoft/goldsmith-plugins/plugins/layout"
-	"github.com/FooSoft/goldsmith-plugins/plugins/markdown"
+	"github.com/FooSoft/goldsmith-components/devserver"
+	"github.com/FooSoft/goldsmith-components/plugins/frontmatter"
+	"github.com/FooSoft/goldsmith-components/plugins/layout"
+	"github.com/FooSoft/goldsmith-components/plugins/markdown"
 )
 
 type builder struct{}
