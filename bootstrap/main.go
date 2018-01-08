@@ -85,7 +85,7 @@ func (b *builder) Build(srcDir, dstDir string) {
 		Chain(syntax.New().Placement(syntax.PlaceInline)).
 		Chain(dom.New(fixup)).
 		Chain(thumbnail.New()).
-		FilterPush(condition.If(len(b.root) > 0)).
+		FilterPush(condition.New(len(b.root) > 0)).
 		Chain(abs.New().BaseUrl(b.root)).
 		FilterPop().
 		End(dstDir)
