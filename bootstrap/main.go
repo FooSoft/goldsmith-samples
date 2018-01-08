@@ -28,10 +28,10 @@ import (
 
 	"github.com/FooSoft/goldsmith"
 	"github.com/FooSoft/goldsmith-components/devserver"
+	"github.com/FooSoft/goldsmith-components/filters/condition"
 	"github.com/FooSoft/goldsmith-components/plugins/abs"
 	"github.com/FooSoft/goldsmith-components/plugins/breadcrumbs"
 	"github.com/FooSoft/goldsmith-components/plugins/collection"
-	"github.com/FooSoft/goldsmith-components/plugins/condition"
 	"github.com/FooSoft/goldsmith-components/plugins/dom"
 	"github.com/FooSoft/goldsmith-components/plugins/frontmatter"
 	"github.com/FooSoft/goldsmith-components/plugins/index"
@@ -85,7 +85,9 @@ func (b *builder) Build(srcDir, dstDir string) {
 		Chain(syntax.New().Placement(syntax.PlaceInline)).
 		Chain(dom.New(fixup)).
 		Chain(thumbnail.New()).
-		Chain(condition.If(len(b.root) > 0, abs.New().BaseUrl(b.root))).
+		FilterPush(condition.If(len(b.root) > 0)).
+		Chain(abs.New().BaseUrl(b.root)).
+		FilterPop().
 		End(dstDir)
 
 	for _, err := range errs {

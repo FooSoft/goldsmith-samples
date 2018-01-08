@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"log"
 
 	"github.com/FooSoft/goldsmith"
@@ -25,5 +26,7 @@ func (b *builder) Build(srcDir, dstDir string) {
 }
 
 func main() {
-	devserver.DevServe(new(builder), 8080, "src", "dst", "layouts")
+	port := flag.Int("port", 8080, "server port")
+	flag.Parse()
+	devserver.DevServe(new(builder), *port, "src", "dst", "layouts")
 }
