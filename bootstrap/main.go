@@ -23,12 +23,15 @@
 package main
 
 import (
+	"flag"
 	"log"
 
 	"github.com/FooSoft/goldsmith"
 	"github.com/FooSoft/goldsmith-components/devserver"
+	"github.com/FooSoft/goldsmith-components/plugins/abs"
 	"github.com/FooSoft/goldsmith-components/plugins/breadcrumbs"
 	"github.com/FooSoft/goldsmith-components/plugins/collection"
+	"github.com/FooSoft/goldsmith-components/plugins/condition"
 	"github.com/FooSoft/goldsmith-components/plugins/dom"
 	"github.com/FooSoft/goldsmith-components/plugins/frontmatter"
 	"github.com/FooSoft/goldsmith-components/plugins/index"
@@ -55,7 +58,9 @@ func fixup(doc *goquery.Document) error {
 	return nil
 }
 
-type builder struct{}
+type builder struct {
+	root string
+}
 
 func (b *builder) Build(srcDir, dstDir string) {
 	tagMeta := map[string]interface{}{
@@ -80,6 +85,7 @@ func (b *builder) Build(srcDir, dstDir string) {
 		Chain(syntax.New().Placement(syntax.PlaceInline)).
 		Chain(dom.New(fixup)).
 		Chain(thumbnail.New()).
+		Chain(condition.If(len(b.root) > 0, abs.New().BaseUrl(b.root))).
 		End(dstDir)
 
 	for _, err := range errs {
@@ -88,5 +94,11 @@ func (b *builder) Build(srcDir, dstDir string) {
 }
 
 func main() {
-	devserver.DevServe(new(builder), 8080, "src", "dst", "layouts")
+	var (
+		root = flag.String("root", "", "root directory")
+		port = flag.Int("port", 8080, "server port")
+	)
+	flag.Parse()
+
+	devserver.DevServe(&builder{*root}, *port, "src", "dst", "layouts")
 }
