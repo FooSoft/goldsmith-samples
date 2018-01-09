@@ -97,10 +97,10 @@ func (b *builder) Build(srcDir, dstDir string) {
 
 func main() {
 	var (
+		dst  = flag.String("dst", "dst", "destination directory")
 		root = flag.String("root", "", "root directory")
 		port = flag.Int("port", 8080, "server port")
 	)
 	flag.Parse()
-
-	devserver.DevServe(&builder{*root}, *port, "src", "dst", "layouts")
+	devserver.DevServe(&builder{*root}, *port, "src", *dst, "layouts")
 }
