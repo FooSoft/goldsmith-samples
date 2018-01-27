@@ -29,6 +29,7 @@ import (
 	"github.com/FooSoft/goldsmith"
 	"github.com/FooSoft/goldsmith-components/devserver"
 	"github.com/FooSoft/goldsmith-components/filters/condition"
+	"github.com/FooSoft/goldsmith-components/filters/summary"
 	"github.com/FooSoft/goldsmith-components/plugins/abs"
 	"github.com/FooSoft/goldsmith-components/plugins/breadcrumbs"
 	"github.com/FooSoft/goldsmith-components/plugins/collection"
@@ -75,9 +76,10 @@ func (b *builder) Build(srcDir, dstDir string) {
 
 	errs := goldsmith.Begin(srcDir).
 		Chain(frontmatter.New()).
-		Chain(markdown.New().SummaryKey("Summary")).
+		Chain(markdown.New()).
+		Chain(summary.New()).
 		Chain(collection.New()).
-		Chain(paginate.New("Groups.Blog").InheritKeys("Layout").ItemsPerPage(3)).
+		Chain(paginate.New("Groups.Blog").InheritKeys("Layout").ItemsPerPage(4)).
 		Chain(index.New(indexMeta)).
 		Chain(tags.New().IndexMeta(tagMeta)).
 		Chain(breadcrumbs.New()).
