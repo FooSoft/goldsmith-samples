@@ -21,10 +21,7 @@
 {{end}}
 
 {{define "navbar"}}
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="/">Goldsmith Sample</a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
@@ -35,6 +32,9 @@
             <a class="nav-item nav-link {{if $area}}{{if eq $area "tags"}}active{{end}}{{end}}" href="/tags/">Tags</a>
         </div>
     </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 </nav>
 {{end}}
 
