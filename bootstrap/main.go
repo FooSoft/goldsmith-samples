@@ -29,7 +29,6 @@ import (
 	"github.com/FooSoft/goldsmith"
 	"github.com/FooSoft/goldsmith-components/devserver"
 	"github.com/FooSoft/goldsmith-components/filters/condition"
-	"github.com/FooSoft/goldsmith-components/filters/summary"
 	"github.com/FooSoft/goldsmith-components/plugins/abs"
 	"github.com/FooSoft/goldsmith-components/plugins/breadcrumbs"
 	"github.com/FooSoft/goldsmith-components/plugins/collection"
@@ -39,6 +38,7 @@ import (
 	"github.com/FooSoft/goldsmith-components/plugins/layout"
 	"github.com/FooSoft/goldsmith-components/plugins/markdown"
 	"github.com/FooSoft/goldsmith-components/plugins/paginate"
+	"github.com/FooSoft/goldsmith-components/plugins/summary"
 	"github.com/FooSoft/goldsmith-components/plugins/syntax"
 	"github.com/FooSoft/goldsmith-components/plugins/tags"
 	"github.com/FooSoft/goldsmith-components/plugins/thumbnail"
@@ -88,7 +88,7 @@ func (b *builder) Build(srcDir, dstDir string) {
 		Chain(dom.New(fixup)).
 		Chain(thumbnail.New()).
 		FilterPush(condition.New(len(b.root) > 0)).
-		Chain(abs.New().BaseUrl(b.root)).
+		Chain(abs.New().BaseURL(b.root)).
 		FilterPop().
 		End(dstDir)
 
