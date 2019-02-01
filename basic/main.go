@@ -13,12 +13,12 @@ import (
 
 type builder struct{}
 
-func (b *builder) Build(srcDir, dstDir string) {
-	errs := goldsmith.Begin(srcDir).
+func (b *builder) Build(contentDir, buildDir, cacheDir string) {
+	errs := goldsmith.Begin(contentDir).
 		Chain(frontmatter.New()).
 		Chain(markdown.New()).
-		Chain(layout.New("layouts/*.html")).
-		End(dstDir)
+		Chain(layout.New()).
+		End(buildDir)
 
 	for _, err := range errs {
 		log.Print(err)
@@ -26,10 +26,8 @@ func (b *builder) Build(srcDir, dstDir string) {
 }
 
 func main() {
-	var (
-		dst  = flag.String("dst", "dst", "destination directory")
-		port = flag.Int("port", 8080, "server port")
-	)
+	port := flag.Int("port", 8080, "server port")
 	flag.Parse()
-	devserver.DevServe(new(builder), *port, "src", *dst, "layouts")
+
+	devserver.DevServe(new(builder), *port, "content", "build", "cache")
 }
