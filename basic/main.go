@@ -15,6 +15,7 @@ type builder struct{}
 
 func (b *builder) Build(contentDir, buildDir, cacheDir string) {
 	errs := goldsmith.Begin(contentDir).
+		Cache(cacheDir).
 		Chain(frontmatter.New()).
 		Chain(markdown.New()).
 		Chain(layout.New()).
