@@ -6,7 +6,6 @@ import (
 
 	"github.com/FooSoft/goldsmith"
 	"github.com/FooSoft/goldsmith-components/devserver"
-	"github.com/FooSoft/goldsmith-components/filters/condition"
 	"github.com/FooSoft/goldsmith-components/plugins/absolute"
 	"github.com/FooSoft/goldsmith-components/plugins/breadcrumbs"
 	"github.com/FooSoft/goldsmith-components/plugins/collection"
@@ -36,9 +35,7 @@ func fixup(doc *goquery.Document) error {
 	return nil
 }
 
-type builder struct {
-	root string
-}
+type builder struct{}
 
 func (b *builder) Build(contentDir, buildDir, cacheDir string) {
 	tagMeta := map[string]interface{}{
@@ -64,9 +61,7 @@ func (b *builder) Build(contentDir, buildDir, cacheDir string) {
 		Chain(syntax.New().Placement(syntax.PlaceInline)).
 		Chain(document.New(fixup)).
 		Chain(thumbnail.New()).
-		FilterPush(condition.New(len(b.root) > 0)).
-		Chain(absolute.New().BaseUrl(b.root)).
-		FilterPop().
+		Chain(absolute.New()).
 		End(buildDir)
 
 	for _, err := range errs {
@@ -75,9 +70,8 @@ func (b *builder) Build(contentDir, buildDir, cacheDir string) {
 }
 
 func main() {
-	root := flag.String("root", "", "server root")
 	port := flag.Int("port", 8080, "server port")
 	flag.Parse()
 
-	devserver.DevServe(&builder{*root}, *port, "content", "build", "cache")
+	devserver.DevServe(new(builder), *port, "content", "build", "cache")
 }
