@@ -22,7 +22,7 @@ import (
 )
 
 func fixup(doc *goquery.Document) error {
-	doc.Find("table").AddClass("table", "table-dark")
+	doc.Find("table").AddClass("table").Find("thead").AddClass("thead-light")
 	doc.Find("blockquote").AddClass("blockquote")
 	doc.Find("img[src*='thumb']").Each(func(i int, s *goquery.Selection) {
 		thumbLink := s.ParentFiltered("a")
