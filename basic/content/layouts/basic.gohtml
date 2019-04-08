@@ -3,7 +3,6 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{.Meta.Title}}</title>
     </head>
     <body>
@@ -15,12 +14,8 @@
 {{end}}
 
 {{define "page"}}
-{{template "header" .}}
-<div class="container">
-    <div class="page-header">
-        <h1>{{.Meta.Title}}</h1>
-    </div>
+    {{template "header" .}}
+    <h1>{{.Meta.Title}}</h1>
     {{.Meta.Content}}
-</div>
-{{template "footer" .}}
+    {{template "footer" .}}
 {{end}}
