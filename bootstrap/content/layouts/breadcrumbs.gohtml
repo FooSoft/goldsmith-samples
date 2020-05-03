@@ -8,7 +8,7 @@
         {{if .Meta.Title}}
         <span class="breadcrumb-item active">{{.Meta.Title}}</span>
         {{else if eq .Meta.Layout "tag"}}
-        <span class="breadcrumb-item active">Tagged &ldquo;{{.Meta.Tags.Index}}&rdquo;</span>
+        <span class="breadcrumb-item active">Tagged &ldquo;{{.Meta.TagState.CurrentTag.RawName}}&rdquo;</span>
         {{end}}
     </nav>
 </div>

@@ -1,8 +1,8 @@
 {{define "cloud"}}
-{{if .Meta.TagState.Tags}}
+{{if .Meta.TagState.CurrentTags}}
 <div>
-    {{range .Meta.TagState.Tags}}
-    <a class="badge badge-secondary" href="/{{(index $.Meta.TagState.Info .).Path}}">{{.}}</a>
+    {{range .Meta.TagState.CurrentTags}}
+    <a class="badge badge-secondary" href="/{{.IndexFile.Path}}">{{.RawName}}</a>
     {{end}}
 </div>
 {{end}}

@@ -12,7 +12,7 @@
         {{if .Meta.Title}}
         <title>Goldsmith Sample - {{.Meta.Title}}</title>
         {{else if eq .Meta.Layout "tag"}}
-        <title>Goldsmith Sample - Tagged "{{.Meta.Tags.Index}}"</title>
+        <title>Goldsmith Sample - Tagged "{{.Meta.TagState.CurrentTag.RawName}}"</title>
         {{else if eq .Meta.Layout "index"}}
         <title>Goldsmith Sample - Index of /{{.Dir}}</title>
         {{end}}

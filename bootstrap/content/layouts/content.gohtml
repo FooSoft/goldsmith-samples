@@ -21,10 +21,10 @@
 {{template "header" .}}
 {{template "navbar" .}}
 <div class="container">
-    <h1>Tagged &ldquo;{{.Meta.Tags.Index}}&rdquo;</h1>
+    <h1>Tagged &ldquo;{{.Meta.TagState.CurrentTag.RawName}}&rdquo;</h1>
     <hr>
     <ul>
-        {{range (index .Meta.Tags.Info .Meta.Tags.Index).Files}}
+        {{range .Meta.TagState.CurrentTag.TaggedFiles}}
         <li><a href="/{{.Path}}">{{.Meta.Title}}</a></li>
         {{end}}
     </ul>
@@ -40,8 +40,8 @@
     <h1>Tags</h1>
     <hr>
     <ul>
-        {{range $key, $value := .Meta.TagState.Info}}
-        <li><a href="/{{(index $.Meta.TagState.Info $key).Path}}">{{$key}}</a> ({{len $value.Files}})</li>
+        {{range .Meta.TagState.TagsByCount}}
+        <li><a href="/{{.IndexFile.Path}}">{{.RawName}}</a> ({{len .TaggedFiles}})</li>
         {{end}}
     </ul>
     {{template "breadcrumbs" .}}
