@@ -4,14 +4,14 @@
 {{template "github" .}}
 <div class="container">
     <h1>
-        {{.Meta.Title}}
-        {{if .Meta.SubTitle}}
-        <small>{{.Meta.SubTitle}}</small>
+        {{.Props.Title}}
+        {{if .Props.SubTitle}}
+        <small>{{.Props.SubTitle}}</small>
         {{end}}
     </h1>
     {{template "cloud" .}}
     <hr>
-    {{.Meta.Content}}
+    {{.Props.Content}}
     {{template "breadcrumbs" .}}
 </div>
 {{template "footer" .}}
@@ -21,11 +21,11 @@
 {{template "header" .}}
 {{template "navbar" .}}
 <div class="container">
-    <h1>Tagged &ldquo;{{.Meta.TagState.CurrentTag.RawName}}&rdquo;</h1>
+    <h1>Tagged &ldquo;{{.Props.TagState.CurrentTag.RawName}}&rdquo;</h1>
     <hr>
     <ul>
-        {{range .Meta.TagState.CurrentTag.TaggedFiles}}
-        <li><a href="/{{.Path}}">{{.Meta.Title}}</a></li>
+        {{range .Props.TagState.CurrentTag.TaggedFiles}}
+        <li><a href="/{{.Path}}">{{.Props.Title}}</a></li>
         {{end}}
     </ul>
     {{template "breadcrumbs" .}}
@@ -40,7 +40,7 @@
     <h1>Tags</h1>
     <hr>
     <ul>
-        {{range .Meta.TagState.TagsByCount}}
+        {{range .Props.TagState.TagsByCount}}
         <li><a href="/{{.IndexFile.Path}}">{{.RawName}}</a> ({{len .TaggedFiles}})</li>
         {{end}}
     </ul>
@@ -55,7 +55,7 @@
 <div class="container">
     <h1>Index of /{{.Dir}}</h1>
     <ul class="list-unstyled">
-        {{range .Meta.Files}}
+        {{range .Props.Files}}
         {{if .IsDir}}<strong>{{end}}
             <li><a href="/{{.Path}}">{{.Name}}</a></li>
             {{if .IsDir}}</strong>{{end}}

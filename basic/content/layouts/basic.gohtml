@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>{{.Meta.Title}}</title>
+        <title>{{.Props.Title}}</title>
     </head>
     <body>
 {{end}}
@@ -15,7 +15,7 @@
 
 {{define "page"}}
     {{template "header" .}}
-    <h1>{{.Meta.Title}}</h1>
-    {{.Meta.Content}}
+    <h1>{{.Props.Title}}</h1>
+    {{.Props.Content}}
     {{template "footer" .}}
 {{end}}

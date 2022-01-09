@@ -2,11 +2,11 @@
 {{template "header" .}}
 {{template "navbar" .}}
 <div class="container">
-    {{range .Meta.Groups.Blog}}
+    {{range .Props.Groups.Blog}}
     <div>
-        <h2><a href="{{.Path}}">{{.Meta.Title}}</a></h2>
+        <h2><a href="{{.Path}}">{{.Props.Title}}</a></h2>
         <p>
-            {{.Meta.Summary}}
+            {{.Props.Summary}}
             <a href="{{.Path}}">&hellip;</a>
         </p>
     </div>

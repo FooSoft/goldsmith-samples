@@ -9,11 +9,11 @@
         <link rel="stylesheet" href="/lib/tether/css/tether-theme-basic.min.css">
         <link rel="stylesheet" href="/lib/lightbox/ekko-lightbox.min.css">
         <link rel="stylesheet" href="/main.css">
-        {{if .Meta.Title}}
-        <title>Goldsmith Sample - {{.Meta.Title}}</title>
-        {{else if eq .Meta.Layout "tag"}}
-        <title>Goldsmith Sample - Tagged "{{.Meta.TagState.CurrentTag.RawName}}"</title>
-        {{else if eq .Meta.Layout "index"}}
+        {{if .Props.Title}}
+        <title>Goldsmith Sample - {{.Props.Title}}</title>
+        {{else if eq .Props.Layout "tag"}}
+        <title>Goldsmith Sample - Tagged "{{.Props.TagState.CurrentTag.RawName}}"</title>
+        {{else if eq .Props.Layout "index"}}
         <title>Goldsmith Sample - Index of /{{.Dir}}</title>
         {{end}}
     </head>
@@ -25,7 +25,7 @@
     <a class="navbar-brand" href="/">Goldsmith Sample</a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            {{$area := .Meta.Area}}
+            {{$area := .Props.Area}}
             <a class="nav-item nav-link {{if $area}}{{if eq $area "blog"}}active{{end}}{{end}}" href="/">Blog</a>
             <a class="nav-item nav-link {{if $area}}{{if eq $area "portfolio"}}active{{end}}{{end}}" href="/portfolio/">Portfolio</a>
             <a class="nav-item nav-link {{if $area}}{{if eq $area "projects"}}active{{end}}{{end}}" href="/projects/">Projects</a>

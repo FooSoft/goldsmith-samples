@@ -1,14 +1,14 @@
 {{define "breadcrumbs"}}
-{{if and .Meta.CrumbParent .Meta.Crumbs}}
+{{if and .Props.CrumbParent .Props.Crumbs}}
 <div>
     <nav class="breadcrumb">
-        {{range .Meta.Crumbs.Ancestors}}
-        <a href="/{{.File.Path}}" class="breadcrumb-item">{{.File.Meta.Title}}</a>
+        {{range .Props.Crumbs.Ancestors}}
+        <a href="/{{.File.Path}}" class="breadcrumb-item">{{.File.Props.Title}}</a>
         {{end}}
-        {{if .Meta.Title}}
-        <span class="breadcrumb-item active">{{.Meta.Title}}</span>
-        {{else if eq .Meta.Layout "tag"}}
-        <span class="breadcrumb-item active">Tagged &ldquo;{{.Meta.TagState.CurrentTag.RawName}}&rdquo;</span>
+        {{if .Props.Title}}
+        <span class="breadcrumb-item active">{{.Props.Title}}</span>
+        {{else if eq .Props.Layout "tag"}}
+        <span class="breadcrumb-item active">Tagged &ldquo;{{.Props.TagState.CurrentTag.RawName}}&rdquo;</span>
         {{end}}
     </nav>
 </div>

@@ -1,7 +1,7 @@
 {{define "cloud"}}
-{{if .Meta.TagState.CurrentTags}}
+{{if .Props.TagState.CurrentTags}}
 <div>
-    {{range .Meta.TagState.CurrentTags}}
+    {{range .Props.TagState.CurrentTags}}
     <a class="badge badge-secondary" href="/{{.IndexFile.Path}}">{{.RawName}}</a>
     {{end}}
 </div>

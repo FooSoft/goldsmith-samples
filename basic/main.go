@@ -17,16 +17,16 @@ type builder struct {
 	dist bool
 }
 
-func (b *builder) Build(srcDir, dstDir, cacheDir string) {
+func (self *builder) Build(srcDir, dstDir, cacheDir string) {
 	errs := goldsmith.
-		Begin(srcDir).                     // read files from srcDir
-		Chain(frontmatter.New()).          // extract frontmatter and store it as metadata
-		Chain(markdown.New()).             // convert *.md files to *.html files
-		Chain(layout.New()).               // apply *.gohtml templates to *.html files
-		FilterPush(condition.New(b.dist)). // push a dist-only conditional filter onto the stack
-		Chain(minify.New()).               // minify *.html, *.css, *.js, etc. files
-		FilterPop().                       // pop off the last filter pushed onto the stack
-		End(dstDir)                        // write files to dstDir
+		Begin(srcDir).                        // read files from srcDir
+		Chain(frontmatter.New()).             // extract frontmatter and store it as metadata
+		Chain(markdown.New()).                // convert *.md files to *.html files
+		Chain(layout.New()).                  // apply *.gohtml templates to *.html files
+		FilterPush(condition.New(self.dist)). // push a dist-only conditional filter onto the stack
+		Chain(minify.New()).                  // minify *.html, *.css, *.js, etc. files
+		FilterPop().                          // pop off the last filter pushed onto the stack
+		End(dstDir)                           // write files to dstDir
 
 	for _, err := range errs {
 		log.Print(err)

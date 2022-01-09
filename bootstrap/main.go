@@ -21,7 +21,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func fixup(doc *goquery.Document) error {
+func fixup(file *goldsmith.File, doc *goquery.Document) error {
 	doc.Find("table").AddClass("table").Find("thead").AddClass("thead-light")
 	doc.Find("blockquote").AddClass("blockquote")
 	doc.Find("img[src*='thumb']").Each(func(i int, s *goquery.Selection) {
@@ -37,7 +37,7 @@ func fixup(doc *goquery.Document) error {
 
 type builder struct{}
 
-func (b *builder) Build(contentDir, buildDir, cacheDir string) {
+func (self *builder) Build(contentDir, buildDir, cacheDir string) {
 	tagMeta := map[string]interface{}{
 		"Area":        "tags",
 		"CrumbParent": "tags",
