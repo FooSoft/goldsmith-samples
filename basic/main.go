@@ -4,13 +4,13 @@ import (
 	"flag"
 	"log"
 
-	"github.com/FooSoft/goldsmith"
-	"github.com/FooSoft/goldsmith-components/devserver"
-	"github.com/FooSoft/goldsmith-components/filters/condition"
-	"github.com/FooSoft/goldsmith-components/plugins/frontmatter"
-	"github.com/FooSoft/goldsmith-components/plugins/layout"
-	"github.com/FooSoft/goldsmith-components/plugins/markdown"
-	"github.com/FooSoft/goldsmith-components/plugins/minify"
+	"foosoft.net/projects/goldsmith"
+	"foosoft.net/projects/goldsmith-components/devserver"
+	"foosoft.net/projects/goldsmith-components/filters/condition"
+	"foosoft.net/projects/goldsmith-components/plugins/frontmatter"
+	"foosoft.net/projects/goldsmith-components/plugins/layout"
+	"foosoft.net/projects/goldsmith-components/plugins/markdown"
+	"foosoft.net/projects/goldsmith-components/plugins/minify"
 )
 
 type builder struct {
