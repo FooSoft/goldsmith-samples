@@ -3,7 +3,7 @@ module foosoft.net/projects/goldsmith-samples
 go 1.18
 
 require (
-	foosoft.net/projects/goldsmith v0.0.0-20220704005305-57dfa350ee16
+	foosoft.net/projects/goldsmith v0.0.0-20221015201244-4456f3b206ed
 	foosoft.net/projects/goldsmith-components v0.0.0-20220704013648-0ef739189a6a
 	github.com/PuerkitoBio/goquery v1.8.0
 )
